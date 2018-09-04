@@ -1,0 +1,11 @@
+[colors]
+color1 = #ffffff
+
+[bar/mybar]
+monitor = 
+bottom = false
+
+font-0: "Inconsolata:pixelsize=12;0"
+font-1: "Roboto:size=11:weight=bold;2"
+
+[module/

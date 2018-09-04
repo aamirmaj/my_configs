@@ -1,0 +1,30 @@
+sw_volume: 100
+audio_device_state:1:pulse audio
+audio_device_state:1:Visualizer feed
+state: pause
+current: 0
+time: 18.750000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:albums/MED - Bad Neighbor/01 - Greetings.mp3
+1:albums/MED - Bad Neighbor/02 - Serving.mp3
+2:albums/MED - Bad Neighbor/03 - Peroxide.mp3
+3:albums/MED - Bad Neighbor/04 - Get Money.mp3
+4:albums/MED - Bad Neighbor/05 - Streets.mp3
+5:albums/MED - Bad Neighbor/06 - The Stroll - (Musicfire.in).mp3
+6:albums/MED - Bad Neighbor/07 - Knock Knock - (Musicfire.in).mp3
+7:albums/MED - Bad Neighbor/08 - Mad Neighbor - (Musicfire.in).mp3
+8:albums/MED - Bad Neighbor/09 - The Strip - (Musicfire.in).mp3
+9:albums/MED - Bad Neighbor/10 - Finer Things - (Musicfire.in).mp3
+10:albums/MED - Bad Neighbor/11 - Burgundy Whip - (Musicfire.in).mp3
+11:albums/MED - Bad Neighbor/12 - Drive In - (Musicfire.in).mp3
+12:albums/MED - Bad Neighbor/13 - Belly Full - (Musicfire.in).mp3
+13:albums/MED - Bad Neighbor/14 - Birds - (Musicfire.in).mp3
+14:albums/MED - Bad Neighbor/15 - The Buzz - (Musicfire.in).mp3
+playlist_end

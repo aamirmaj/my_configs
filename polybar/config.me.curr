@@ -1,0 +1,213 @@
+; Aamir's Polybar
+
+[bar/base]
+    monitor = LVDS1
+	width = 100%
+	height = 30
+	clickareas = 30
+	override-redirect = false
+    ;	border-size = 20
+	;   border-bottom-size = 0
+	; border-color = #00000000
+	tray-background = #112111
+	background = #112111
+	foreground = #ccc
+	linecolor = ${bar/bottom.background}
+	tray-position = right
+	tray-detached = false
+	spacing = 4
+	line-size = 4
+	padding-left = 3
+	padding-right = 8
+	module-margin-left = 3
+	module-margin-right = 3
+	font-0 = Noto Sans:size=8;
+	font-1 = MaterialIcons:size=8;1
+	font-2 = FontAwesome:size=8;2
+	font-3 = Siji:size=10;1
+	font-4 = Monospace:size=10;1
+	modules-left = date battery cpu memory
+	modules-center = i3
+	modules-right = mpd playerctl volume
+	cursor-click = pointer
+	cursor-scroll = ns-resize
+
+[bar/top]
+	inherit = bar/base
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/cpu]
+	type = internal/cpu
+	interval = 2
+	format = <label> <bar-load>
+	label = CPU 
+	bar-load-width = 15
+	bar-load-foreground-0 = #3af936
+	;bar-load-foreground-1 = #c00
+	;bar-load-foreground-2 = #fba922
+	;bar-load-foreground-3 = #ff5555
+	bar-load-indicator = |
+	bar-load-indicator-foreground = #ff
+	bar-load-indicator-font = 4
+	bar-load-fill = ─
+	bar-load-fill-font = 4
+	bar-load-empty = ─
+	bar-load-empty-font = 4
+	bar-load-empty-foreground = #444444
+
+[module/memory]
+	type = internal/memory
+	format = <label> <bar-used>
+	label = RAM
+	interval = 3
+	bar-used-width = 15
+	bar-used-font = 4
+	bar-used-foreground-0 = #3af936
+	;bar-used-foreground-1 = #aaff77
+	;bar-used-foreground-2 = #fba922
+	;bar-used-foreground-3 = #ff5555
+	bar-used-indicator = |
+	bar-used-indicator-foreground = #ff
+	bar-used-indicator-font = 4
+	bar-used-fill = ─
+	bar-used-fill-font = 4
+	bar-used-empty = ─
+	bar-used-empty-font = 4
+	bar-used-empty-foreground = #444444
+
+[module/date]
+	type = internal/date
+	;date =    %%{F#999}%a %e %b%%{F-}  %%{F#fff}%H:%M%%{F-}
+    date =    %%{F#99}%m-%d-%Y%%{F-}  %%{F#fff}%I:%M %p%%{F-}
+    date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#444444}%S%%{F-}
+
+[module/i3]
+	type = internal/i3
+	pin-workspaces = true
+	; ws-icon-0 = 1;
+	; ws-icon-1 = 2;
+	; ws-icon-2 = 3;
+	; ws-icon-3 = 4;
+	; ws-icon-4 = 5;
+	; ws-icon-5 = 6;6
+	; ws-icon-6 = 7;7
+	; ws-icon-7 = 8;8
+	; ws-icon-8 = 9;9
+	; ws-icon-9 = 10;0
+	; ws-icon-10 = 11;
+	; ws-icon-11 = 12;
+	; ws-icon-12 = 13;
+	; ws-icon-13 = 14;O
+	; ws-icon-14 = 15;P
+	; ws-icon-15 = 16;J
+	; ws-icon-16 = 17;K
+	; ws-icon-17 = 18;
+	; ws-icon-18 = 19;
+	; ws-icon-default = ♟
+	; label-focused = %icon%
+	label-focused-foreground = #ffffff
+	label-focused-background = #1d3f1d
+	label-focused-underline = #3af936
+	label-focused-padding = 2
+	; label-unfocused = %icon%
+	label-unfocused-padding = 2
+	; label-visible = %icon%
+	label-visible-underline = #555555
+	label-visible-padding = 2
+	; label-urgent = %icon%
+	label-urgent-underline = #bd2c40
+	label-urgent-padding = 2
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+format-online = <icon-prev> <icon-play> <icon-next> <bar-progress> <label-time> <label-song>
+interval = 2
+
+label-song= %artist:0:10% - %title:0:35%
+#format-offline = <label-offline> 
+icon-prev = ⏪
+icon-next = ⏩
+icon-play = ⏵
+toggle-on-foreground =
+toggle-off-foreground = #66
+
+bar-progress-width = 20
+#bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 4
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 4
+bar-progress-empty = ─
+bar-progress-empty-font = 4
+bar-progress-empty-foreground = #444444
+
+[module/playerctl]
+type = custom/script
+interval = 1
+
+label = %output:0:55:...%
+exec = ~/.config/polybar/mpris.sh
+
+[module/volume]
+	type = internal/volume
+    format-volume = <label-volume>   
+    label-volume = VOL   %percentage%%
+	label-muted = 
+    ;label-foreground = #444444
+    ;label-muted-foreground = #66
+	;label-muted-font = 4
+	ramp-volume-0 = 
+	ramp-volume-1 = 
+	ramp-volume-2 = 
+	ramp-volume-3 = 
+	bar-volume-width = 20
+	bar-volume-foreground-0 = #3af936
+	bar-volume-foreground-1 = #3af936
+	bar-volume-foreground-2 = #3af936
+	bar-volume-foreground-3 = #3af936
+	bar-volume-indicator = |
+	bar-volume-indicator-foreground = #ff
+	bar-volume-indicator-font = 4
+	bar-volume-fill = ─
+	bar-volume-fill-font = 4
+	bar-volume-empty = ─
+	bar-volume-empty-font = 4
+	bar-volume-empty-foreground = #444444
+    mapped = true
+
+; vim:ft=dosini
